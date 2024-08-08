@@ -3,7 +3,11 @@ import { StyleSheet, View } from 'react-native';
 
 import { Button, Stack as MaterialStack, Text, TextInput } from "@react-native-material/core";
 
+import useTemperatureConverter from '../hooks/useTemperatureConverter';
+
 export default function ConvertTemperatureForm() {
+    const { celsius, setCelsius, fahrenheit, convertTemperature } = useTemperatureConverter();
+
     return (
         <MaterialStack>
             <View style={styles.headline}>
@@ -11,14 +15,16 @@ export default function ConvertTemperatureForm() {
             </View>
             <View style={styles.inputContainer}>
                 <Text variant="body1" style={styles.fieldLabel}>Grados Celsius:</Text>
-                <TextInput variant="standard" />
+                <TextInput variant="standard" value={celsius} onChangeText={(text) => setCelsius(text)} />
             </View>
             <View style={styles.inputContainer}>
                 <Text variant="body1" style={styles.fieldLabel}>Grados Fahrenheit:</Text>
-                <TextInput variant="standard" editable={ false }/>
+                <View style={styles.resultContainer}>
+                    <Text style={styles.resultLabel}>{fahrenheit}</Text>
+                </View>
             </View>
             <View style={styles.buttonContainer}>
-                <Button title="CONVERTIR" style={styles.formButton} />
+                <Button title="CONVERTIR" style={styles.formButton} onTouchEnd={convertTemperature} />
             </View>
         </MaterialStack>
     )
@@ -38,6 +44,11 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         fontSize: 15,
     },
+    resultContainer: {
+        marginTop: 30,
+        borderBottomColor: '#999999',
+        borderBottomWidth: 2,
+    },
     buttonContainer: {
         marginTop: 20,
         marginRight: 80,
@@ -45,6 +56,9 @@ const styles = StyleSheet.create({
     },
     fieldLabel: {
         color: '#666666',
+    },
+    resultLabel: {
+        color: '#000000',
     },
     formButton: {
         shadowOffset: 0,

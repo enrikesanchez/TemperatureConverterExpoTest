@@ -9,3 +9,5 @@ Step 1: Model
 
 Step 2: View
 - npm install @react-native-material/core
+
+Step 3: Controller
