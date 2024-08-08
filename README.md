@@ -3,3 +3,6 @@ Project created using:
 
 To run the application:
 - npx expo start
+
+Step 1: Model
+- npm install --save-dev jest
