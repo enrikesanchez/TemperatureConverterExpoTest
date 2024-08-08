@@ -6,3 +6,6 @@ To run the application:
 
 Step 1: Model
 - npm install --save-dev jest
+
+Step 2: View
+- npm install @react-native-material/core
