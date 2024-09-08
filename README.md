@@ -9,5 +9,9 @@ Step 1: Model
 
 Step 2: View
 - npm install @react-native-material/core
+- https://docs.expo.dev/guides/environment-variables/
 
 Step 3: Controller
+
+Step 4: Backend connectivity
+- npm install axios
